@@ -1,3 +1,5 @@
+// npx ts-node src/creationPatterns/factoryMethod/main.ts
+
 // *Creator class
 class WritingsCreator {
     // *This is the factory method, it creates "Products"
@@ -25,7 +27,7 @@ class BookCreator extends WritingsCreator {
 class ArticleCreator extends WritingsCreator {
     createWriting(): WritingProduct {
         let randomNumber: number = Math.random();
-        return new Book(`${randomNumber} Productivity tips`);
+        return new Article(`${randomNumber} Productivity tips`);
     }
 }
 
@@ -79,6 +81,7 @@ class Application {
 let app: Application = new Application();
 
 // *New Products can easily be created using methods from the CreatorClass
+// Either this helpermethod can be used or the factory method itself
 app.writingCreator.printPress();
 app.writingCreator.printPress();
 app.writingCreator.printPress();
