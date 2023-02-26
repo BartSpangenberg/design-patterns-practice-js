@@ -11,7 +11,7 @@ export class GovernmentSingleton {
     // If doens't exist create
     public static getGovernment(): GovernmentSingleton {
         if (!GovernmentSingleton.instance) {
-            GovernmentSingleton.instance = new GovernmentSingleton();;
+            GovernmentSingleton.instance = new GovernmentSingleton();
         }
 
         return this.instance;
