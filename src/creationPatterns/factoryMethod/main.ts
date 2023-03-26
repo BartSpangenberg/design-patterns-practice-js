@@ -1,13 +1,10 @@
 // npx ts-node src/creationPatterns/factoryMethod/main.ts
 
 // *Creator class
-class WritingsCreator {
+abstract class WritingsCreator {
     // *This is the factory method, it creates "Products"
     // The factory methods need to be overwritten by subclasses
-    createWriting(): WritingProduct {
-        // Override in Subclass
-        return new WritingProduct("");
-    }
+    abstract createWriting(): WritingProduct;
 
     // Often Creator classes has some form of operation that executes code on properties of the Product
     printPress() {
@@ -36,12 +33,12 @@ class ArticleCreator extends WritingsCreator {
 class WritingProduct {
     text: string;
 
-    showHeader() {
-        console.log(this.text.toUpperCase());
-    }
-
     constructor(text: string) {
         this.text = text;
+    }
+
+    showHeader() {
+        console.log(this.text.toUpperCase());
     }
 }
 
@@ -53,6 +50,21 @@ class Book extends WritingProduct {
 }
 
 class Article extends WritingProduct {
+    constructor(text: string) {
+        super(text);
+    }
+
+    showHeaderPlusName() {
+        console.log(this.text + "Kalande");
+    }
+
+    // @override
+    // showHeader() {
+    //     console.log(this.text.toUpperCase() + " Overwritten");
+    // }
+}
+
+class ArticleContent extends Article {
     constructor(text: string) {
         super(text);
     }
@@ -75,6 +87,13 @@ class Application {
         }
 
         this.writingCreator = writingCreator;
+
+
+        // Test subclassing with 3 levels
+        // let articleContent: ArticleContent = new ArticleContent("Kalande's fairy tales");
+
+        // articleContent.showHeader();
+        // articleContent.showHeaderPlusName();
     }
 }
 

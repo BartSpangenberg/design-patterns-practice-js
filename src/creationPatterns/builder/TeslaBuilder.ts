@@ -30,4 +30,8 @@ export class TeslaBuilder implements CarBuilder {
         this.reset();
         return result;
     }
+
+    callElon() {
+        console.log("Where's my TESLA!!! YOU CRAZY ENGINEERING MANIAC!!!!");
+    }
 }

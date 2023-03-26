@@ -2,7 +2,6 @@ import { Car } from "./Car"
 
 // *Abstract Car builder
 export interface CarBuilder {
-
     // TODO: implement
     reset(): void
 

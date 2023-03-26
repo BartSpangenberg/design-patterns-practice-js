@@ -1,7 +1,7 @@
 import { Challenge } from "./Challenge";
 import { CompleteChallengeInterface } from "./CompleteChallengeInterface";
 
-// The main difference between private and protected is that 
+// The main difference between private and protected is that ... da da dum ...
 // private members can only be accessed within the class where they are defined, 
 // while protected members can be accessed within the class and its subclasses.
 
