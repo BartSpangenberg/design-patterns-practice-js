@@ -1,5 +1,6 @@
 import { HabitScreenState } from "./HabitState";
 
+// Context
 export class HabitScreen {
     private state: HabitScreenState;
 
@@ -12,6 +13,7 @@ export class HabitScreen {
     }
 
     takeALookAtTheScreen(): void {
+        // This is a critical part of the pattern, the Context delegating the work tot the State
         this.state.showScreen();
     }
 
