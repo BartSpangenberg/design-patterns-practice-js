@@ -29,7 +29,7 @@ export class Deer extends AnimalPrototype {
         })
     }
 
-    // * Override the clone method from the super class, clone the superclass
+    // * Override the clone method from the super class, clone the superclass 
     clone(): AnimalPrototype {
         // ! "this" keyword as argument only works because we pass 1 object to the constructor. JS will interpret this as {isHairy: this.isHairy, height: this.height}
         // -- However the hasHorns will not be copied, for the new object it will be set to true.
