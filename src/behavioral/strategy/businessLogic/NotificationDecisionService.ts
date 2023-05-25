@@ -7,6 +7,9 @@ import { TeamDownNotificationLogic } from "./TeamDownNotificationLogic";
 import { TeamUpNotificationLogic } from "./TeamUpNotificationLogic";
 
 export abstract class NotificationDecisionService {
+
+    // pickNotification(): NotificationType 
+
     abstract createNotification(): NotificationTemplate | null;
 }
 
@@ -35,6 +38,8 @@ export class NotificationDecisionServiceImpl implements NotificationDecisionServ
             this.notificationStategies = [new SoloDownNotificationLogic(), new SoloUpNotificationLogic(), new TeamDownNotificationLogic(), new TeamUpNotificationLogic()];
         }
     }
+
+
 
     createNotification(): NotificationTemplate | null {
         let index = 0;
