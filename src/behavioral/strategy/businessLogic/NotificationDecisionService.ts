@@ -39,8 +39,6 @@ export class NotificationDecisionServiceImpl implements NotificationDecisionServ
         }
     }
 
-
-
     createNotification(): NotificationTemplate | null {
         let index = 0;
 
