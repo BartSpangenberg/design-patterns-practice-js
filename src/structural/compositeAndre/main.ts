@@ -103,6 +103,7 @@ class CompositeDecision implements Decision {
         return result;
     }
 }
+
 class LeafDecision implements Decision {
     constructor(private name: string, private strategy: DecisionStrategy) { }
 
@@ -123,11 +124,21 @@ const root = new CompositeDecision("root", randomStrategy);
 const eatHealthy = new CompositeDecision("Eat Healthy?", randomStrategy);
 const exercise = new CompositeDecision("Exercise?", randomStrategy);
 
+
 const fruits = new LeafDecision("Eat Fruits", randomStrategy);
 const vegetables = new LeafDecision("Eat Vegetables", randomStrategy);
 
 const walk = new LeafDecision("Walk", randomStrategy);
 const run = new LeafDecision("Run", randomStrategy);
+
+
+const gymExercise = new CompositeDecision("Gym exercise?", randomStrategy);
+const bench = new LeafDecision("Bench", randomStrategy);
+const squat = new LeafDecision("Squat", randomStrategy);
+
+exercise.add(gymExercise);
+gymExercise.add(bench);
+gymExercise.add(squat);
 
 eatHealthy.add(fruits);
 eatHealthy.add(vegetables);
@@ -153,3 +164,6 @@ console.log(answer)
 // |-- Exercise?
 //     |-- Walk
 //     |-- Run
+//     |-- Gym?
+//          |-- Bench
+//          |-- Squat
